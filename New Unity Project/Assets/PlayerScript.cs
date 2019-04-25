@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public bool enter = true;
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -41,5 +42,14 @@ public class PlayerScript : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Target")
+        {
+            //If the GameObject has the same tag as specified, output this message in the console
+            Debug.Log("Do something else here");
+        }
     }
 }
